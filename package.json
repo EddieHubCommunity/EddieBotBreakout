@@ -25,6 +25,10 @@
     "url": "https://github.com/EddieHubCommunity/DiscordBot-SpeedNetworking/issues"
   },
   "homepage": "https://github.com/EddieHubCommunity/DiscordBot-SpeedNetworking#readme",
+  "engines": {
+    "node": "^16.11.0",
+    "npm": "^8.0.0"
+  },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.2.0",
     "@typescript-eslint/parser": "^5.2.0",
