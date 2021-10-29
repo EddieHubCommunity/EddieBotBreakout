@@ -26,7 +26,7 @@ export const voice: Command = {
         .addIntegerOption((option) =>
           option
             .setName("duration")
-            .setDescription("Length of the breakout session")
+            .setDescription("Length of the breakout session, in minutes.")
             .setRequired(true)
         )
         .addIntegerOption((option) =>
