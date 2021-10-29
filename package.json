@@ -1,0 +1,46 @@
+{
+  "name": "voice-bot",
+  "version": "0.0.0",
+  "description": "Speed networking bot for discord",
+  "main": "./prod/index.js",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint src --max-warnings 0",
+    "start": "node -r dotenv/config ./prod/index.js",
+    "test": "echo 'no tests yet'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EddieHubCommunity/DiscordBot-SpeedNetworking.git"
+  },
+  "keywords": [
+    "discord",
+    "typescript",
+    "node",
+    "discord.js"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EddieHubCommunity/DiscordBot-SpeedNetworking/issues"
+  },
+  "homepage": "https://github.com/EddieHubCommunity/DiscordBot-SpeedNetworking#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.2.0",
+    "@typescript-eslint/parser": "^5.2.0",
+    "eslint": "^8.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jsdoc": "^37.0.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.4.1",
+    "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "@discordjs/builders": "^0.8.1",
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "discord-api-types": "^0.24.0",
+    "discord.js": "^13.2.0",
+    "dotenv": "^10.0.0"
+  }
+}
