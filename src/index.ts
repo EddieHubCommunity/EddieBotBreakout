@@ -4,6 +4,7 @@ import { IntentOptions } from "./config/IntentOptions";
 import { onInteraction } from "./events/onInteraction";
 import { onReady } from "./events/onReady";
 import { DiscordBot } from "./interfaces/DiscordBot";
+import { errorHandler } from "./utils/errorHandler";
 import { loadCommands } from "./utils/loadCommands";
 import { registerCommands } from "./utils/registerCommands";
 import { validateEnv } from "./utils/validateEnv";
@@ -22,5 +23,12 @@ import { validateEnv } from "./utils/validateEnv";
     await onInteraction(bot, interaction);
   });
 
-  await bot.login(process.env.TOKEN);
+  await bot.login(process.env.TOKEN).catch(async (err) => {
+    await errorHandler(
+      bot,
+      "login",
+      "This error occurred when logging in to Discord.",
+      err
+    );
+  });
 })();
