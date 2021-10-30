@@ -21,7 +21,7 @@ export const handleBreakout: CommandHandler = async (bot, interaction) => {
     return;
   }
 
-  if (interaction.user.id !== "412611450364887048") {
+  if (!(interaction.member as GuildMember)?.permissions.has("MOVE_MEMBERS")) {
     await interaction.editReply(
       "You do not have permissions to run this slash command!"
     );
