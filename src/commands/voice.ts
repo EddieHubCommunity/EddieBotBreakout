@@ -10,7 +10,7 @@ import { handleBreakout } from "../modules/subcommands/handleBreakout";
 
 export const voice: Command = {
   data: new SlashCommandBuilder()
-    .setName("eddiebot-breakout-voice")
+    .setName("speed-networking")
     .setDescription("Voice commands!")
     .addSubcommand(
       new SlashCommandSubcommandBuilder()
