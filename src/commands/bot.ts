@@ -9,7 +9,7 @@ import { handlePing } from "../modules/subcommands/handlePing";
 
 export const bot: Command = {
   data: new SlashCommandBuilder()
-    .setName("bot")
+    .setName("eddiebot-breakout-status")
     .setDescription("Commands related to the bot.")
     .addSubcommand(
       new SlashCommandSubcommandBuilder()
