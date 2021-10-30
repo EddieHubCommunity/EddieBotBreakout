@@ -59,13 +59,13 @@ export const handleBreakout: CommandHandler = async (bot, interaction) => {
     }
   }
 
-  try {
-    mutableMembers.forEach(
-      async (m) => await m.voice.setChannel(newChannels[0])
-    );
-  } catch (e) {
-    console.log(e);
-  }
+  mutableMembers.forEach(async (m) => {
+    try {
+      await m.voice.setChannel(newChannels[0]);
+    } catch (e) {
+      console.log(e);
+    }
+  });
 
   await interaction.editReply({
     content: `Started a breakout session with ${totalMembers} participants in ${newChannels.length} rooms for ${duration} minutes.`,
