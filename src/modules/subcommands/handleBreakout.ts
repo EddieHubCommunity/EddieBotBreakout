@@ -1,5 +1,5 @@
 /* eslint-disable jsdoc/require-param */
-import { VoiceChannel } from "discord.js";
+import { GuildMember, VoiceChannel } from "discord.js";
 
 import { CommandHandler } from "../../interfaces/CommandHandler";
 import { getRandomValue } from "../../utils/getRandomValue";
