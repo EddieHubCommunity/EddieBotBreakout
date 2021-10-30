@@ -1,4 +1,4 @@
-import { Client } from "discord.js";
+import { Client, WebhookClient } from "discord.js";
 
 import { Command } from "./Command";
 
@@ -9,4 +9,5 @@ export interface DiscordBot extends Client {
     id: string;
   };
   commands: Command[];
+  debugHook: WebhookClient;
 }
