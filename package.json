@@ -1,6 +1,6 @@
 {
   "name": "voice-bot",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Speed networking bot for discord",
   "main": "./prod/index.js",
   "scripts": {

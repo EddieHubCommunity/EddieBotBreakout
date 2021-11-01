@@ -1,4 +1,13 @@
-# 0.1.0 (2021-10-30)
+# [0.2.0](https://github.com/EddieHubCommunity/DiscordBot-SpeedNetworking/compare/v0.1.0...v0.2.0) (2021-11-01)
+
+
+### Features
+
+* error handling ([#24](https://github.com/EddieHubCommunity/DiscordBot-SpeedNetworking/issues/24)) ([42700f1](https://github.com/EddieHubCommunity/DiscordBot-SpeedNetworking/commit/42700f19fe72b9c9b4c69bb2a78c3fb6c5304328))
+
+
+
+# [0.1.0](https://github.com/EddieHubCommunity/DiscordBot-SpeedNetworking/compare/340748e9e7b1df3df2cdb53ff4b9dba37cf0f064...v0.1.0) (2021-10-30)
 
 
 ### Bug Fixes
