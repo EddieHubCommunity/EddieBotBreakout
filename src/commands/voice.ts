@@ -7,6 +7,7 @@ import { ChannelType } from "discord-api-types";
 
 import { Command } from "../interfaces/Command";
 import { handleBreakout } from "../modules/subcommands/handleBreakout";
+import { errorHandler } from "../utils/errorHandler";
 
 export const voice: Command = {
   data: new SlashCommandBuilder()
@@ -37,18 +38,27 @@ export const voice: Command = {
         )
     ),
   run: async (bot, interaction) => {
-    await interaction.deferReply();
+    try {
+      await interaction.deferReply();
 
-    const subcommand = interaction.options.getSubcommand();
+      const subcommand = interaction.options.getSubcommand();
 
-    switch (subcommand) {
-      case "breakout":
-        await handleBreakout(bot, interaction);
-        break;
-      default:
-        await interaction.editReply({
-          content: "Oops nhcarrigan broke it again",
-        });
+      switch (subcommand) {
+        case "breakout":
+          await handleBreakout(bot, interaction);
+          break;
+        default:
+          await interaction.editReply({
+            content: "Oops nhcarrigan broke it again",
+          });
+      }
+    } catch (err) {
+      await errorHandler(
+        bot,
+        "Voice command",
+        "Occurs at the top level command.",
+        err
+      );
     }
   },
 };

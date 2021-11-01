@@ -1,7 +1,10 @@
 import { Client } from "discord.js";
 
 import { IntentOptions } from "./config/IntentOptions";
+import { onInteraction } from "./events/onInteraction";
+import { onReady } from "./events/onReady";
 import { DiscordBot } from "./interfaces/DiscordBot";
+import { errorHandler } from "./utils/errorHandler";
 import { loadCommands } from "./utils/loadCommands";
 import { registerCommands } from "./utils/registerCommands";
 import { validateEnv } from "./utils/validateEnv";
@@ -13,21 +16,19 @@ import { validateEnv } from "./utils/validateEnv";
   await registerCommands(bot);
 
   bot.on("ready", () => {
-    console.debug(`Logged in as ${bot.user?.tag}!`);
+    onReady(bot);
   });
 
   bot.on("interactionCreate", async (interaction) => {
-    if (!interaction.isCommand()) {
-      return;
-    }
-
-    for (const command of bot.commands) {
-      if (command.data.name === interaction.commandName) {
-        await command.run(bot, interaction);
-        break;
-      }
-    }
+    await onInteraction(bot, interaction);
   });
 
-  await bot.login(process.env.TOKEN);
+  await bot.login(process.env.TOKEN).catch(async (err) => {
+    await errorHandler(
+      bot,
+      "login",
+      "This error occurred when logging in to Discord.",
+      err
+    );
+  });
 })();

@@ -1,3 +1,5 @@
+import { WebhookClient } from "discord.js";
+
 import { DiscordBot } from "../interfaces/DiscordBot";
 
 /**
@@ -17,11 +19,15 @@ export const validateEnv = (bot: DiscordBot) => {
   if (!process.env.CLIENT_ID) {
     throw new Error("Missing bot id!");
   }
+  if (!process.env.WH_URL) {
+    throw new Error("Missing Webhook URL!");
+  }
 
   bot.config = {
     token: process.env.TOKEN,
     homeGuild: process.env.HOME_GUILD,
     id: process.env.CLIENT_ID,
   };
+  bot.debugHook = new WebhookClient({ url: process.env.WH_URL });
   console.debug("Environment variables valid!");
 };
